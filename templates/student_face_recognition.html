@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+</head>
+<body>
+    <h2>Face Recognition for {% if student_name %}{{ student_name }}{% endif %}</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+   {% endwith %}
+    {% if student_name %}
+        <p>Status: {% if attendance[student_name] == 'Present' %}Present{% else %}Absent{% endif %}</p>
+        <form action="{{ url_for('student_face_recognition') }}" method="post">
+            <input type="submit" value="Start Face Recognition">
+        </form>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Waiting</title>
+</head>
+<body>
+    <h1>Teachers Waiting</h1>
+    <h2>Student Attendance</h2>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Status</th>
+        </tr>
+        {% for student, status in attendance.items() %}
+        <tr>
+            <td>{{ student }}</td>
+            <td>{{ status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Numerical Code for Students</h2>
+    <p>Please tell the students to enter the following code: <strong>{{ numerical_code }}</strong></p>
+</body>
+</html>
